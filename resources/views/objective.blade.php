@@ -1,7 +1,19 @@
 @extends('layout')
+
+@include('partials._header')
+
+
+
 @section('content')
 
+
+
+
     <div class="works-about-area reverse bg-gray overflow-hidden">
+
+         <div class="works-about-area reverse bg-gray overflow-hidden">
+      
+    </div>
         <div class="container">
             <div class="works-about-items default-padding-bottom">
                 <div class="row align-center">

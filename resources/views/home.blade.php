@@ -1,15 +1,18 @@
 @extends('layout')
+@include('partials._header')
+@include('partials._hero')
+@include('partials._mission')
+
+
 @section('content')
-<h1>{{ $heading }}</h1>
 
 
- <div class="thumb-services-area carousel-shadow relative bg-cover">
-    <div class="container">
-            <div class="row">
+ <div class="thumb-services-area carousel-shadow relative bg-cover mt-5">
+    <div class="container mt-5">
+            <div class="row mt-5">
                 <div class="col-lg-8 offset-lg-2">
                     <div class="site-heading text-center">
-                        <h4>Services</h4>
-                        <h2 class="title">What we do?</h2>
+                        <h2 class="title">OUR OBJECTIVES</h2>
                     </div>
                 </div>
             </div>
@@ -19,7 +22,7 @@
         <div class="services-items services-carousel owl-carousel owl-theme text-center">
                 
                 @if(count($objectives) == 0 ) 
-                <p>No Listing Found</p>
+                <p class="text-center">No Objectives Found</p>
 
                 @endif
 
@@ -44,8 +47,18 @@
 
  </div>
 
+@include('partials.whychoose')
 
+@include('partials._services')
 
+@include('partials._footer')
 
 @endsection
+
+
+
+
+
+
+
 
