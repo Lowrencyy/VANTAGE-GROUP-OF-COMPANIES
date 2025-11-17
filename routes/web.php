@@ -1,49 +1,35 @@
 <?php
 
-use App\Models\Service;
-use App\Models\Objective;
+use App\Http\Controllers\ObjectiveController;
+use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 
+// main landing page 
+Route::get('/', [ObjectiveController::class, 'index'])->name('objectives.index');
 
-// get all objectives
-Route::get('/', function () {
-    return view('home', [
-        'heading'    => 'Latest Objectives',
-        'objectives' => Objective::all(),
-        'services' => Service::all(),
-    ]);
-});
+Route::get('/objectives', [ObjectiveController::class, 'search'])
+     ->name('objectives.search');
 
-// get single objective
-Route::get('/objectives/{id}', function ($id) {
-    return view('objective', [
-        'objective' => Objective::findOrFail($id),
-    ]);
-});
+Route::get('/objectives/{objective}', [ObjectiveController::class, 'show'])
+     ->name('objectives.show');
+
+Route::get('/services', [ServiceController::class, 'search'])
+     ->name('services.search');
+
+Route::get('/services/{service}', [ServiceController::class, 'show'])
+     ->name('services.show');
 
 
 
+// common resources routes
 
-// services single (DETAIL PAGE)
-Route::get('/services/{id}', function ($id) {
-    return view('service', [
-        'service' => Service::findOrFail($id),
-    ]);
-});
+// index - show all data 
+// create - show  a single data 
+// create - show a form to create a data 
+// store - store a data 
+// edit - show form to edit data 
+// update - update data 
+// destroy - destroy data / delete
 
-// CRUD FOR BANNER 
-
-// CRUD FOR FOOTER 
-
-// CRUD FOR MISSION & VISION 
-
-// CRUD FOR SERVICES 
-
-// CRUD FOR CONTACT 
-
-// CRUD FOR WHYCHOOSE 
-
-
-// CRUD FOR USER 
 
 

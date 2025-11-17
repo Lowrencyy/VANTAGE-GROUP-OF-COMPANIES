@@ -97,18 +97,24 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" >OBJECTIVES</a>
                             <ul class="dropdown-menu">
+                                    <li><a href="/objectives" class="text-primary">ALL OBJECTIVES</a></li>
+                                @foreach ($objectives as $objective)
+                                     <li><a href="/objectives/{{ $objective['id']}}">{{ $objective->title }}</a></li>
+                                @endforeach
                                
-                                <li><a href="services-3.html">Services Version Three</a></li>
-                                <li><a href="services-details.html">Services Details</a></li>
+                               
                             </ul>
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" >SERVICES</a>
                             <ul class="dropdown-menu">
-                                <li><a href="case-studies-1.html">Versino One</a></li>
-                                <li><a href="case-studies-2.html">Versino Two</a></li>
-                                <li><a href="case-studies-3.html">Versino Three</a></li>
-                                <li><a href="case-details.html">Case Details</a></li>
+
+                                @foreach ($services as $service)
+                                <a href="/services/{{ $service->id }}">{{ $service->title }}</a>
+                                     
+                                @endforeach
+                              
+                                
                             </ul>
                         </li>
                         <li class="dropdown">

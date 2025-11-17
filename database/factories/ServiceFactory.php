@@ -18,6 +18,7 @@ class ServiceFactory extends Factory
     {
         return [
             'title' => $this->faker->sentence(),
+            'servicesLists' => '100% Client Satisfaction , vantageit li , vantage it bullets , this is testing li only',
             'description' => $this->faker->paragraph(5),
         ];
     }

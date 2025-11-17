@@ -1,35 +1,36 @@
-@extends('layout')
+<x-layout>
 
 @include('partials._header')
 
+@php
+    // explode the comma-separated list from DB
+    $servicesList = explode(',', $service->servicesLists);
+@endphp
 
 
-@section('content')
 
-   <div class="works-about-area reverse bg-gray overflow-hidden">
-      
-    </div>
-
-  <div class="works-about-area overflow-hidden">
+  <div class="works-about-area overflow-hidden mt-50">
         <div class="container">
             <div class="works-about-items default-padding">
                 <div class="row align-center">
                     <div class="col-lg-6 info">
                         <h5>Our Services</h5>
-                        <h2 class="title">{{ $service['title'] }}</h2>
+
+                        <h2 class="title">{{ $service->title }}</h2>
+
                         <p>
-                            {{ $service['description'] }}
+                            {{ $service->description }}
                         </p>
+
                         <ul>
-                            <li>
-                                <h5>100% Client Satisfaction</h5>
-                            </li>
-                            <li>
-                                <h5>World Class Worker</h5>
-                            </li>
+                            @foreach ($servicesList as $item)
+                                <li><h5>{{ trim($item) }}</h5></li>
+                            @endforeach
                         </ul>
+
                         <a class="btn btn-theme effect btn-sm">Back To Home</a>
                     </div>
+
                     <div class="col-lg-6">
                         <div class="thumb">
                             <img src="{{ asset('assets/img/about/3.jpg') }}" alt="Thumb">
@@ -39,18 +40,10 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
     </div>
 
-
-
-
-
- 
-
-<h2></h2>
-<h2></h2>
-
-@endsection
+</x-layout>
